@@ -1,4 +1,20 @@
+body {
+    margin-top: 0;
+}
+
 .navbar {
-    height: 40px;
+    height: 50px;
     background: linear-gradient(to right, lightgreen, yellow);
+}
+
+.product {
+    display: flex;
+    flex-direction: row;
+    margin: 40px;
+}
+
+.product-image img {
+    margin-right: 40px;
+    width: 300px;
+    border: lightgray solid 1px;
 }
