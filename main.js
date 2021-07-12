@@ -6,6 +6,7 @@ var app = new Vue ({
         product: "Socks",
         inventory: 0,
         details: ["80% cotton", "20% polyester", "Gender-neutral"],
+        image: 'https://www.vuemastery.com/images/challenges/vmSocks-green-onWhite.jpg',
         variants: [
             {
                 variantId: 2234,
@@ -18,14 +19,16 @@ var app = new Vue ({
                 variantImage: 'https://www.vuemastery.com/images/challenges/vmSocks-blue-onWhite.jpg'
             }
         ],
+        cart: 0,
         methods: {
             addToCart() {
-                this.cart += 1
+                this.cart += 1,
+                alert ('add to cart clicked')
             },
-            updateProduct = function (variantImage) {
-                this.image = variantImage
+            updateProduct (link) {
+                this.image = link
             }
         }
-    
+
     }
 })
