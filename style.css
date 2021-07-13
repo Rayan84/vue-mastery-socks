@@ -27,3 +27,22 @@ body {
   height: 40px;
   margin-top: 5px;
 }
+
+.buttons-container {
+  padding-top: 15px;
+}
+
+button {
+  margin: 5px;
+  line-height: 30px;
+  font-weight: bold;
+  background-color: #0099cc;
+  color: #ffffff;
+  border: none;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+.disabledButton {
+  background-color: lightgray;
+}
