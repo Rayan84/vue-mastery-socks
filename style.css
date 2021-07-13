@@ -8,7 +8,6 @@ body {
 }
 
 .product {
-    display: flex;
     flex-direction: row;
     margin: 40px;
 }
@@ -17,4 +16,8 @@ body {
     margin-right: 40px;
     width: 300px;
     border: lightgray solid 1px;
+}
+
+.flex {
+  display: flex;
 }
