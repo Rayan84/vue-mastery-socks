@@ -1,4 +1,3 @@
-//Create a new button and method to decrement the value of `cart`.
 
 var app = new Vue({
   el: '#app',
