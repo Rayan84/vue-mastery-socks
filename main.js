@@ -2,8 +2,9 @@
 var app = new Vue({
   el: '#app',
   data: {
+    brand: 'Vue Mastery',
     product: 'Socks',
-    image: 'https://www.vuemastery.com/images/challenges/vmSocks-green-onWhite.jpg',
+    selectedVariant: 0,
     inStock: true,
     details: ['80% cotton', '20% polyester', 'Gender-neutral'],
     variants: [
@@ -27,8 +28,18 @@ var app = new Vue({
     removeFromCart() {
       this.cart -= 1
     },
-    updateProduct(variantImage) {
-      this.image = variantImage
+    updateProduct(index) {
+      this.selectedVariant = index,
+      console.log(index)
+
+    }
+  },
+  computed: {
+    title() {
+      return this.brand + ' ' + this.product
+    },
+    image() {
+      return this.variant[selectedVariant].variantImage
     }
   }
 })
