@@ -9,7 +9,7 @@
         </div>
         <div id="app">
             <div class="cart">
-                <p>Cart ({{ cart.length }})</p>
+                <p class="float-right margin-right-40"><strong>Cart</strong> ({{ cart.length }})</p>
               </div>
            <product :premium="premium" @add-to-cart="addToCart" @remove-from-cart="removeFromCart"></product>
            

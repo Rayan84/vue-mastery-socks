@@ -7,6 +7,14 @@ body {
     background: linear-gradient(to right, lightgreen, yellow);
 }
 
+.float-right {
+  float: right;
+}
+
+.margin-right-40 {
+  margin-right: 40px;
+}
+
 .product {
     flex-direction: row;
     margin: 40px;
@@ -46,3 +54,4 @@ button {
 .disabledButton {
   background-color: lightgray;
 }
+
