@@ -3,7 +3,7 @@ Vue.component('product', {
     premium: {
       type: Boolean,
       required: true,
-    },
+    }
   },
   template: `
   <div class="product flex">
@@ -26,10 +26,10 @@ Vue.component('product', {
            @mouseover="updateProduct(index)">
       </div>
       <div class="flex buttons-container">
-        <button @click="addToCart"
+        <button @click="emitAddToCart"
                 :class="{ disabledButton: !inStock }"
                 :disabled="!inStock">Add to Cart</button>
-        <button @click="removeFromCart"
+        <button @click="emitRemoveFromCart"
                 :class="{ disabledButton: cart == 0 }"
                 :disabled="cart == 0"
         >Remove from Cart</button>
@@ -56,20 +56,25 @@ Vue.component('product', {
         variantId: 2235,
         variantColor: 'blue',
         variantImage: 'https://www.vuemastery.com/images/challenges/vmSocks-blue-onWhite.jpg',
-        variantQuantity: 0,
+        variantQuantity: 20,
       }
     ],
    }
   },
   methods: {
-    addToCart() {
-      this.cart += 1
+    emitAddToCart() {
+      this.$emit('add-to-cart', this.variants[this.selectedVariant].variantId)
+   //   console.log('emitAddToCart was fired')
     },
-    removeFromCart() {
-      this.cart -= 1
+    emitRemoveFromCart() {
+      this.$emit('remove-from-cart', this.variants[this.selectedVariant].variantId)
+     // console.log('emitRemoveFromCart was fired'),
+     // console.log(this.variants[this.selectedVariant].variantId)
+
     },
     updateProduct(index) {
-      this.selectedVariant = index
+      this.selectedVariant = index,
+      console.log(index)
     }
   },
   computed: {
@@ -105,6 +110,20 @@ var app = new Vue({
   el: '#app',
   data: {
     premium: false,
-    cart: 0
+    cart: []
+  },
+  methods: {
+    addToCart(id) {
+      this.cart.push(id)
+   //   console.log('addToCart function was called')
+    },
+    removeFromCart(id){
+      console.log('remove from card function called')
+      var index = (this.cart.findIndex(o => o === id))
+      if (index > -1) {
+        this.cart.splice(index, 1)
+      }
+ 
+    }
   }
 })
