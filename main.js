@@ -14,7 +14,7 @@ Vue.component('product', {
       <h1>{{ title }}</h1>
       <p v-if="inStock">In Stock</p>
       <p v-else>Out of Stock</p>
-      <p>User is premium: {{ premium }}</p>
+      <p>{{ userIsPremium }}</p>
       <p>Shipping: {{ shipping }}</p>
       <ul>
           <li v-for="detail in details">{{ detail }}</li>
@@ -35,9 +35,7 @@ Vue.component('product', {
         >Remove from Cart</button>
 
       </div>
-      <div class="cart">
-        <p>Cart ({{ cart }})</p>
-      </div>
+
     </div>
   </div>
   `,
@@ -61,7 +59,6 @@ Vue.component('product', {
         variantQuantity: 0,
       }
     ],
-    cart: 0
    }
   },
   methods: {
@@ -91,7 +88,14 @@ Vue.component('product', {
       }else {
         return "$2.99"
       }
-    }
+    },
+    userIsPremium() {
+      if (this.premium) {
+        return "User is premium"
+      }else {
+        return "User is not premium"
+      }
+      }
    }
   })
 
@@ -101,5 +105,6 @@ var app = new Vue({
   el: '#app',
   data: {
     premium: false,
+    cart: 0
   }
 })
