@@ -104,11 +104,16 @@ Vue.component('product', {
    }
   })
 
-  Vue.component('product-review'), {
+  Vue.component('product-review', {
     template: `
       <input v-model="name">
     `,
-  }
+    data() {
+      return {
+        name: null
+      }
+    }
+  })
 
 
 
