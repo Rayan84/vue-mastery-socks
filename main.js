@@ -104,6 +104,12 @@ Vue.component('product', {
    }
   })
 
+  Vue.component('product-review'), {
+    template: `
+      <input v-model="name">
+    `,
+  }
+
 
 
 var app = new Vue({
@@ -123,7 +129,6 @@ var app = new Vue({
       if (index > -1) {
         this.cart.splice(index, 1)
       }
- 
     }
   }
 })
