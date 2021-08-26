@@ -111,6 +111,12 @@ Vue.component('product', {
         <label for="name">Name:</label>
         <input id="name" v-model="name">
       </p>
+
+      <p>
+        <label for="review">Review:</label>
+        <textarea id="review"></textarea>
+      </p>
+
     </form
     `,
     data() {
