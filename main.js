@@ -106,7 +106,12 @@ Vue.component('product', {
 
   Vue.component('product-review', {
     template: `
-      <input v-model="name">
+    <form class="review-form">
+      <p>
+        <label for="name">Name:</label>
+        <input id="name" v-model="name">
+      </p>
+    </form
     `,
     data() {
       return {
