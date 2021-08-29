@@ -37,6 +37,7 @@ Vue.component('product', {
       </div>
 
     </div>
+    <product-review></product-review>
   </div>
   `,
   data() {
@@ -121,7 +122,9 @@ Vue.component('product', {
     `,
     data() {
       return {
-        name: null
+        name: null,
+        review: null,
+        rating: null,
       }
     }
   })
