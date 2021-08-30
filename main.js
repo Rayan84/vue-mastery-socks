@@ -10,7 +10,7 @@ Vue.component('product', {
     <div class="product-image">
       <img v-bind:src="image"alt="Socks Image">
     </div>
-    <div class="product-info">
+    <div class="product-info margin-right-40">
       <h1>{{ title }}</h1>
       <p v-if="inStock">In Stock</p>
       <p v-else>Out of Stock</p>
@@ -37,7 +37,14 @@ Vue.component('product', {
       </div>
 
     </div>
-    <product-review></product-review>
+    <div class="margin-right-40">
+      <h2>Reviews</h2>
+      <p v-if="!reviews.length">There are no reviews yet.</p>
+      <ul>
+        <li v-for="review in reviews">{{ review }}</li>
+      </ul>
+    </div>
+    <product-review @review-submitted="addReview"></product-review>
   </div>
   `,
   data() {
@@ -60,6 +67,7 @@ Vue.component('product', {
         variantQuantity: 20,
       }
     ],
+    reviews: []
    }
   },
   methods: {
@@ -76,6 +84,9 @@ Vue.component('product', {
     updateProduct(index) {
       this.selectedVariant = index,
       console.log(index)
+    },
+    addReview(product) {
+      this.reviews.push(productReview)
     }
   },
   computed: {
@@ -148,9 +159,11 @@ Vue.component('product', {
         review: this.review,
         rating: this.rating
       }
+      this.$emit('review-submitted', productReview)
       this.name = null
       this.review = null 
       this.rating = null
+      }
     }
   })
 
